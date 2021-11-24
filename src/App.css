@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'SBAggroM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SBAggroB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SBAggroL';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.App {
+  height:100vh;
+  width:100%;
+  text-align: center;
+  padding:80px 0;
+  background:#111;
+  box-sizing: border-box;
+  font-family: 'SBAggroM';
+  color:#232323;
+}
+
+.btn01 {
+  outline:none;
+  border:none;
+  border-radius:20px;
+  background: #E85970;
+  font-size:20px;
+  padding:20px 24px;
+  color:#fff;
+  font-family: 'SBAggroB';
+  box-shadow:0 10px #C34A58;
+  cursor: pointer;
+}
+.btn01:hover {margin-top:45px;box-shadow:0 5px #C34A58;}
+.mg-t40{
+  margin-top:40px;
+}
