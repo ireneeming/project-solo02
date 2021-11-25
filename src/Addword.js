@@ -1,34 +1,66 @@
 import React from 'react';
-import {Container, Header, AddBtn,Contents } from './styles';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus} from "@fortawesome/free-solid-svg-icons";
+import {Container, Header, Title, AddContents, Word} from './styles';
 
+import {addWordFB} from './redux/modules/words';
+import {useDispatch,useSelector} from 'react-redux';
+import{useHistory,useParams} from 'react-router-dom';
  
-
-
 const Addword = (props) => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+   
+
+    const new_word = React.useRef(null);
+    const new_desc = React.useRef(null);
+    const new_example = React.useRef(null);
+
+    const addWordList = (props)=>{
+        
+        dispatch(addWordFB({word:new_word.current.value,desc:new_desc.current.value, example:new_example.current.value}));
+        history.push('/');
+    }
+
     return(
         <>
-        <Container>
-            <Header>
-            
-                <span style={{textAlign:'center'}}>ADD WORD</span>
-               
+            <Container>
+                <Header>
                 
-            </Header>
-            <Contents>
-            
-            
-            
+                    <span onClick={()=>{history.push('/')}} style={{textAlign:'center'}} >ADD WORD</span>
+                
+                    
+                </Header>
+                <Title>단어추가하기!</Title>
+                <AddContents>
+                    
 
-          
-            </Contents>
-            
+                    <Word>
+                        <span>단어명</span>
+                        <input ref={new_word}></input>
+                    </Word>
+                    
+                    <Word>
+                        <span>설명글</span>
+                        <input ref={new_desc}></input>
+                    </Word>
+                    
+                    <Word style={{marginBottom:'0'}}>
+                        <span>예시글</span>
+                        <input ref={new_example}></input>
+                    </Word>
+                    
+                
+                
 
-        </Container>
-    </>
+            
+                </AddContents>
+                <button class="btn01 mg-t50" onClick={addWordList}>SAVE</button>
+
+            </Container>
+        </>
     );
 }
+
+
 
 export default Addword;
