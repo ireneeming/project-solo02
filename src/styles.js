@@ -10,6 +10,8 @@ background:#FDF6ED;
 border-radius:18px;
 box-sizing:border-box;
 overflow:hidden;
+box-shadow:4px 4px 8px #bbb;
+padding-bottom:20px;
 `;
 
 export const Header = styled.div`

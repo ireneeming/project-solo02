@@ -1,9 +1,8 @@
 import React from 'react';
 import {Container, Header, Title, AddContents, Word} from './styles';
-
 import {addWordFB} from './redux/modules/words';
-import {useDispatch,useSelector} from 'react-redux';
-import{useHistory,useParams} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import{useHistory} from 'react-router-dom';
  
 const Addword = (props) => {
     const dispatch = useDispatch();

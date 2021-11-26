@@ -3,10 +3,9 @@ import React from 'react';
 import Main from './Main';
 import Addword from './Addword';
 import {Route,Switch} from 'react-router-dom';
-import {db} from './firebase';
+//import {db} from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
-import {collection, doc, getDoc, getDocs, addDoc, updateDoc,deleteDoc} from 'firebase/firestore';
-import { loadword, loadWordFB} from './redux/modules/words';
+import {  loadWordFB,} from './redux/modules/words';
 
 function App() {
   // React.useEffect(async ()=>{
@@ -18,8 +17,9 @@ function App() {
   //   });
   // },[]);
   const dispatch = useDispatch();
+  const my_list = useSelector((state)=>state.words.words_list);
 
-  React.useEffect((async)=>{
+  React.useEffect(()=>{
     //console.log(db);
    //addDoc( collection(db,'words'), {word: "new 단어222", desc: "firebase 에서", example:"추가한단어"});
     //const docRef = doc(db,"words","yrxmymY5usv6GBsd7USB");
@@ -27,7 +27,8 @@ function App() {
     //deleteDoc(docRef);
 
     dispatch(loadWordFB());
-  },[]);
+    //console.log("오잉")
+  },[my_list]);
   return (
     <div className="App">
       <Switch>

@@ -5,6 +5,7 @@ import{useSelector, useDispatch} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus} from "@fortawesome/free-solid-svg-icons";
 import {useParams, useHistory} from 'react-router-dom';
+import {deleteWordFB,loadWordFB} from './redux/modules/words';
 
 import Card from '@material-ui/core/Card';
 
@@ -17,7 +18,13 @@ const Main = (props) => {
     
     const history = useHistory();
     const my_list = useSelector((state)=>state.words.words_list);
+    const params = useParams();  
+    const dispatch = useDispatch();
+    
+
    
+
+
     return(
         
         <>
@@ -35,22 +42,28 @@ const Main = (props) => {
                 <Contents>
                 
                 {
-                     my_list && my_list.map((w,index)=>{
+                     my_list.map((w,index)=>{
                         return(
                            
-                            <Card sx={{ minWidth: 275 }} style={{background:'#bbb', marginBottom:'15px', width:'49%',height:'150px'}}>
+                            <Card sx={{ minWidth: 275 }} style={{position:'relative',background:'#bbb',borderRadius:'14px', marginBottom:'15px', width:'49%',height:'150px'}}>
                                 <CardContent>
-                                    <Typography word={w.word} key={index} variant="h5" component="div" style={{ fontFamily: 'SBAggroM'}}>
+                                    <Typography word={w.word}  variant="h5" component="div" style={{ fontFamily: 'SBAggroM'}}>
                                     {w.word}
                                     </Typography>
-                                    <Typography desc={w.desc} key={index} sx={{ mb: 1.5 }} color="text.secondary" style={{ fontFamily: 'SBAggroM'}}>
+                                    <Typography desc={w.desc} key={index} sx={{ mb: 1.5 }}  style={{ fontFamily: 'SBAggroM',marginTop:'20px'}}>
                                     {w.desc}
                                     </Typography>
-                                    <Typography example={w.example} key={index} variant="body2" style={{color:'blue',fontFamily: 'SBAggroL'}}>
+                                    <Typography example={w.example}  variant="body2" style={{color:'blue',fontFamily: 'SBAggroL'}}>
                                     {w.example}
                                     
                                     </Typography>
+                                    
                                 </CardContent>
+                                <div onClick={()=>{
+                                        dispatch(deleteWordFB(my_list[index].id));
+                                        
+                                        //dispatch(loadWordFB());
+                                    }} style={{position:'absolute',top:'20px',right:'20px'}}>삭제</div>
 
                             </Card>
                            
