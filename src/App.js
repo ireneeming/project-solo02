@@ -28,7 +28,7 @@ function App() {
 
     dispatch(loadWordFB());
     //console.log("오잉")
-  },[my_list]);
+  },[]);
   return (
     <div className="App">
       <Switch>
