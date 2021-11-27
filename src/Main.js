@@ -62,7 +62,7 @@ const Main = (props) => {
                                 <div onClick={()=>{
                                         dispatch(deleteWordFB(my_list[index].id));
                                         
-                                        //dispatch(loadWordFB());
+                                        dispatch(loadWordFB());
                                     }} style={{position:'absolute',top:'20px',right:'20px'}}>삭제</div>
 
                             </Card>
